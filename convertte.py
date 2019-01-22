@@ -20,7 +20,12 @@ if args.output_currency:
     tgtCurr = args.output_currency
 
 #rates from European Central Bank
-if urllib.request.urlopen("https://www.ecb.europa.eu/").getcode() == 200:
+try:
+    urllib.request.urlopen("https://www.ecb.europa.eu/").getcode() == 200
+except:
+    #using saved rates
+    pass
+else:
     url = ("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml")
     ratesXML = urllib.request.urlopen(url)
     tree = ET.parse(ratesXML)
