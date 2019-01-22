@@ -48,7 +48,6 @@ if tgtCurr in currencies.keys():
             tgtCurr = currencies[symbol]
             break
 
-
 #read the XML to Dict
 actualRates = {'EUR': 1}
 tree = ET.parse('eurofxref-daily.xml')
@@ -57,8 +56,6 @@ for elem in root:
     for subEl1 in elem:
         for subEl2 in subEl1:
             actualRates[subEl2.attrib['currency']] = float(subEl2.attrib['rate'])
-
-#print(actualRates)
 
 #list of tgt currencies
 convertTo = []
