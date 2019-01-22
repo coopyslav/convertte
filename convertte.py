@@ -69,7 +69,7 @@ def convert(curr, amount, turner):
     conVerted = amount * (actualRates[curr] ** turner)
     return conVerted
 
-#obracecka
+#turner
 midEUR = float()
 outToJSON = {}
 for conToCurr in convertTo:
@@ -95,3 +95,4 @@ toJSON["output"] = outToJSON
 
 with open('output.json', 'w') as JSON:
     json.dump(toJSON, JSON)
+
